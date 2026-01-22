@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.place
+    - field.storage.node.field_longitude
+id: node.place.field_longitude
+field_name: field_longitude
+entity_type: node
+bundle: place
+label: Longitude
+required: false
+settings:
+  min: "-180.00000000"
+  max: "180.00000000"
+field_type: decimal

@@ -1,0 +1,35 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.place
+id: node.place.default
+targetEntityType: node
+bundle: place
+mode: default
+content:
+  field_address:
+    type: entity_reference_autocomplete
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ""
+    third_party_settings: {}
+  field_latitude:
+    type: number
+    weight: 1
+    region: content
+    settings:
+      placeholder: ""
+    third_party_settings: {}
+  field_longitude:
+    type: number
+    weight: 2
+    region: content
+    settings:
+      placeholder: ""
+    third_party_settings: {}
+hidden: {}

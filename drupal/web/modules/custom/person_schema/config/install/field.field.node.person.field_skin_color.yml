@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.person
+    - field.storage.node.field_skin_color
+id: node.person.field_skin_color
+field_name: field_skin_color
+entity_type: node
+bundle: person
+label: Skin Color
+required: false
+settings: {}
+field_type: string

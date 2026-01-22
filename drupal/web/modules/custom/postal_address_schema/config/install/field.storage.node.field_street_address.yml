@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {}
+id: node.field_street_address
+field_name: field_street_address
+entity_type: node
+type: text_long
+settings: {}
+module: text
+cardinality: 1
+translatable: false
+persist_with_no_fields: false
+custom_storage: false

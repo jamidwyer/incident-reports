@@ -1,0 +1,10 @@
+name: Organization Schema
+type: module
+description: Optional schema for Organizations content type.
+core_version_requirement: ^10 || ^11
+package: Starter Schema
+dependencies:
+  - drupal:node
+  - drupal:taxonomy
+  - drupal:text
+  - drupal:link

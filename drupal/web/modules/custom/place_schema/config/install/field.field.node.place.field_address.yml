@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.place
+    - field.storage.node.field_address
+id: node.place.field_address
+field_name: field_address
+entity_type: node
+bundle: place
+label: Address
+required: false
+settings:
+  handler: "default:node"
+  handler_settings:
+    target_bundles:
+      postal_address: postal_address
+field_type: entity_reference

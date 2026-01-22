@@ -1,0 +1,26 @@
+uuid: 6749297d-ec72-46fa-b99f-eee91999bce2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_unit
+    - node.type.quantity
+    - node.type.quantitative_unit
+id: node.quantity.field_unit
+field_name: field_unit
+entity_type: node
+bundle: quantity
+label: Unit
+description: ''
+required: true
+translatable: false
+default_value: {}
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      quantitative_unit: quantitative_unit
+    sort:
+      field: _none
+field_type: entity_reference

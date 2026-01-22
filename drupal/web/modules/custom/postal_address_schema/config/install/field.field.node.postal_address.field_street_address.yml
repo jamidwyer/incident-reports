@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_street_address
+    - node.type.postal_address
+id: node.postal_address.field_street_address
+field_name: field_street_address
+entity_type: node
+bundle: postal_address
+label: Street Address
+description: "The street address of the postal address"
+required: false
+translatable: false
+default_value: {}
+default_value_callback: ""
+settings: {}
+field_type: string

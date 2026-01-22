@@ -1,0 +1,26 @@
+# env files
+.env
+.env.*.local
+.env.local
+.env.staging
+.env.production
+
+# Drupal build artifacts
+drupal/vendor/
+drupal/web/core/
+drupal/web/modules/contrib/
+drupal/web/themes/contrib/
+
+# Drupal site-specific / generated
+drupal/web/sites/*/files/
+drupal/web/sites/*/settings.php
+drupal/web/sites/*/services.yml
+
+# OS/editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Docker volumes / local state (if any)
+**/db-data/

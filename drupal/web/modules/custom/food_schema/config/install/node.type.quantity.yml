@@ -1,0 +1,11 @@
+uuid: a4866858-5520-45aa-a6ce-545f8bb3eb8f
+langcode: en
+status: true
+dependencies: {}
+name: Quantity
+type: quantity
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

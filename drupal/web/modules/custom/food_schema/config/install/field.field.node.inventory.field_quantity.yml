@@ -1,0 +1,26 @@
+uuid: 02a678b7-2c76-4c9b-b6b5-19bb414601fb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_quantity
+    - node.type.inventory
+    - node.type.quantity
+id: node.inventory.field_quantity
+field_name: field_quantity
+entity_type: node
+bundle: inventory
+label: Quantity
+description: ''
+required: true
+translatable: false
+default_value: { }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      quantity: quantity
+    sort:
+      field: _none
+field_type: entity_reference

@@ -1,0 +1,9 @@
+name: Place Schema
+type: module
+description: Optional schema providing a Place content type with address and geographic coordinates.
+core_version_requirement: ^10 || ^11
+package: Starter Schema
+dependencies:
+  - drupal:node
+  - drupal:text
+  - postal_address_schema:postal_address_schema

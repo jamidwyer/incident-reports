@@ -1,0 +1,11 @@
+uuid: 49464318-d063-4786-8765-bead35cac241
+langcode: en
+status: true
+dependencies:
+  module:
+    - migrate_plus
+id: organization_schema
+label: Organization Schema Imports
+description: CSV imports for organizations
+source_type: CSV
+shared_configuration: {}

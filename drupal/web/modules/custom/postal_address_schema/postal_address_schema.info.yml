@@ -1,0 +1,8 @@
+name: Postal Address Schema
+type: module
+description: Optional schema providing a Postal Address content type and basic address fields.
+core_version_requirement: ^10 || ^11
+package: Starter Schema
+dependencies:
+  - drupal:node
+  - drupal:text

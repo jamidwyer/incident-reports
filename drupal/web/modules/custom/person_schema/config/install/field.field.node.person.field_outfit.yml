@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.person
+    - field.storage.node.field_outfit
+id: node.person.field_outfit
+field_name: field_outfit
+entity_type: node
+bundle: person
+label: Outfit
+required: false
+settings:
+  handler: default:node
+  handler_settings:
+    target_bundles:
+      outfit: outfit
+field_type: entity_reference

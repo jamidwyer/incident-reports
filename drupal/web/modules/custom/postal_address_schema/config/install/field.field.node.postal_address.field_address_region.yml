@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_address_region
+    - node.type.postal_address
+id: node.postal_address.field_address_region
+field_name: field_address_region
+entity_type: node
+bundle: postal_address
+label: Region
+description: "The region (state/province) of the postal address"
+required: false
+translatable: false
+default_value: {}
+default_value_callback: ""
+settings: {}
+field_type: string

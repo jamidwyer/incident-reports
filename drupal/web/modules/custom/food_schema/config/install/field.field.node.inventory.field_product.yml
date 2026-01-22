@@ -1,0 +1,26 @@
+uuid: b2ce0593-70d8-4634-82a0-fb21e4f59f6e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_product
+    - node.type.inventory
+    - node.type.product
+id: node.inventory.field_product
+field_name: field_product
+entity_type: node
+bundle: inventory
+label: Product
+description: ''
+required: true
+translatable: false
+default_value: { }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      product: product
+    sort:
+      field: _none
+field_type: entity_reference

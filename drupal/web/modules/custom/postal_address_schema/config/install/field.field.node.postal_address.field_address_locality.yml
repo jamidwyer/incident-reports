@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_address_locality
+    - node.type.postal_address
+id: node.postal_address.field_address_locality
+field_name: field_address_locality
+entity_type: node
+bundle: postal_address
+label: Locality
+description: "The locality (city/town) of the postal address"
+required: false
+translatable: false
+default_value: {}
+default_value_callback: ""
+settings: {}
+field_type: string

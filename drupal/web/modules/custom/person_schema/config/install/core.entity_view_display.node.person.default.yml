@@ -1,0 +1,73 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.person.field_photos
+    - node.type.person
+id: node.person.default
+targetEntityType: node
+bundle: person
+mode: default
+content:
+  field_given_name:
+    type: string
+    label: above
+    weight: 0
+    region: content
+    settings: {}
+    third_party_settings: {}
+  field_family_name:
+    type: string
+    label: above
+    weight: 1
+    region: content
+    settings: {}
+    third_party_settings: {}
+  field_employed_by:
+    type: string
+    label: above
+    weight: 2
+    region: content
+    settings: {}
+    third_party_settings: {}
+  field_hair_color:
+    type: string
+    label: above
+    weight: 3
+    region: content
+    settings: {}
+    third_party_settings: {}
+  field_eye_color:
+    type: string
+    label: above
+    weight: 4
+    region: content
+    settings: {}
+    third_party_settings: {}
+  field_skin_color:
+    type: string
+    label: above
+    weight: 5
+    region: content
+    settings: {}
+    third_party_settings: {}
+  field_outfit:
+    type: entity_reference_label
+    label: above
+    weight: 6
+    region: content
+    settings:
+      link: false
+    third_party_settings: {}
+  field_photos:
+    type: image
+    label: above
+    weight: 7
+    region: content
+    settings:
+      image_link: ""
+      image_style: ""
+      image_loading:
+        attribute: lazy
+    third_party_settings: {}
+hidden: {}

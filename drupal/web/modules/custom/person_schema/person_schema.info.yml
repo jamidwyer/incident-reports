@@ -1,0 +1,8 @@
+name: Person Schema
+type: module
+description: Optional schema for Person content type.
+core_version_requirement: ^10 || ^11
+package: Starter Schema
+dependencies:
+  - drupal:image
+  - outfit_schema:outfit_schema

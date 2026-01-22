@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.place
+    - field.storage.node.field_latitude
+id: node.place.field_latitude
+field_name: field_latitude
+entity_type: node
+bundle: place
+label: Latitude
+required: false
+settings:
+  min: "-90.00000000"
+  max: "90.00000000"
+field_type: decimal

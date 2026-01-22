@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies: {}
+name: Place
+type: place
+description: A Place content type for schema.org Place with address and coordinates.
+help: ""
+new_revision: false
+preview_mode: 1
+display_submitted: false

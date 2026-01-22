@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies: {}
+id: node.field_family_name
+field_name: field_family_name
+entity_type: node
+type: string
+settings:
+  max_length: 255
+module: core
+cardinality: 1
+translatable: false
+persist_with_no_fields: false
+custom_storage: false

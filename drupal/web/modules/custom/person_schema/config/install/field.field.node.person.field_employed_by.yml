@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.person
+    - field.storage.node.field_employed_by
+id: node.person.field_employed_by
+field_name: field_employed_by
+entity_type: node
+bundle: person
+label: Employed By
+required: false
+settings: {}
+field_type: string

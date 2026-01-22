@@ -1,0 +1,15 @@
+name: Outfit schema
+type: module
+description: "Schema module defining Outfit content model."
+core_version_requirement: ^10 || ^11
+package: Schema
+dependencies:
+  - drupal:node
+  - drupal:field
+  - drupal:text
+  - drupal:datetime
+  - drupal:options
+  - drupal:taxonomy
+  - drupal:user
+  - drupal:serialization
+  - drupal:rest

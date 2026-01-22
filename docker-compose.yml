@@ -1,0 +1,28 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: drupal
+      POSTGRES_USER: drupal
+      POSTGRES_PASSWORD: drupal
+    volumes:
+      - db-data:/var/lib/postgresql/data
+  php:
+    build: ./docker/php
+    user: "${UID:-1000}:${GID:-1000}"
+    volumes:
+      - ./drupal:/var/www/html
+    depends_on:
+      - db
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "${HTTP_PORT:-8080}:80"
+    volumes:
+      - ./drupal:/var/www/html
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - php
+volumes:
+  db-data:

@@ -1,0 +1,11 @@
+uuid: 53a8062e-7194-4ea6-97d8-96de587d319e
+langcode: en
+status: true
+dependencies: {}
+name: Organization
+type: organization
+description: Organization content type.
+help: ""
+new_revision: true
+preview_mode: 1
+display_submitted: false
