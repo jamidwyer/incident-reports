@@ -1,9 +1,0 @@
-name: Food Schema
-type: module
-description: Optional schema for Products, Ingredients, Inventory, Quantities, and Units.
-core_version_requirement: ^10 || ^11
-package: Starter Schema
-dependencies:
-  - drupal:node
-  - drupal:taxonomy
-  - drupal:text

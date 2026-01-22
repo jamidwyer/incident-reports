@@ -1,9 +1,0 @@
-name: Service Schema
-type: module
-description: Service content type.
-core_version_requirement: ^10 || ^11
-package: Starter Schema
-dependencies:
-  - drupal:node
-  - drupal:text
-  - drupal:link
