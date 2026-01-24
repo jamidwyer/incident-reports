@@ -10,10 +10,10 @@ field_name: field_pants
 entity_type: node
 bundle: outfit
 label: Pants
-description: ''
+description: ""
 required: false
 translatable: false
-default_value: { }
-default_value_callback: ''
-settings: { }
+default_value: {}
+default_value_callback: ""
+settings: {}
 field_type: text

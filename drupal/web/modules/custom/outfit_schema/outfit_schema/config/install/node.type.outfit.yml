@@ -1,10 +1,10 @@
 langcode: en
 status: true
-dependencies: { }
+dependencies: {}
 name: Outfit
 type: outfit
 description: An outfit worn by a person.
-help: ''
+help: ""
 new_revision: false
 preview_mode: 1
 display_submitted: false

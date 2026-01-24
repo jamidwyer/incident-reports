@@ -19,6 +19,7 @@ All fields and entity configuration should live in module config, not be edited 
 - **Weapons** (optional text field, multiple values)
 
 Config goes in:
+
 - config/install
 
 After enabling the module, Drupal will install the schema.

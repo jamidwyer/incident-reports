@@ -24,7 +24,7 @@ content:
     region: content
     settings:
       size: 60
-      placeholder: ''
+      placeholder: ""
     third_party_settings: {}
   field_shirt:
     type: string_textfield
@@ -32,7 +32,7 @@ content:
     region: content
     settings:
       size: 60
-      placeholder: ''
+      placeholder: ""
     third_party_settings: {}
   field_coat:
     type: string_textfield
@@ -40,7 +40,7 @@ content:
     region: content
     settings:
       size: 60
-      placeholder: ''
+      placeholder: ""
     third_party_settings: {}
   field_uniform:
     type: string_textfield
@@ -48,7 +48,7 @@ content:
     region: content
     settings:
       size: 60
-      placeholder: ''
+      placeholder: ""
     third_party_settings: {}
   field_hat:
     type: string_textfield
@@ -56,7 +56,7 @@ content:
     region: content
     settings:
       size: 60
-      placeholder: ''
+      placeholder: ""
     third_party_settings: {}
   field_face_covering:
     type: string_textfield
@@ -64,7 +64,7 @@ content:
     region: content
     settings:
       size: 60
-      placeholder: ''
+      placeholder: ""
     third_party_settings: {}
   field_footwear:
     type: string_textfield
@@ -72,7 +72,7 @@ content:
     region: content
     settings:
       size: 60
-      placeholder: ''
+      placeholder: ""
     third_party_settings: {}
   field_badges:
     type: string_textfield
@@ -80,7 +80,7 @@ content:
     region: content
     settings:
       size: 60
-      placeholder: ''
+      placeholder: ""
     third_party_settings: {}
   field_patches:
     type: string_textfield
@@ -88,7 +88,7 @@ content:
     region: content
     settings:
       size: 60
-      placeholder: ''
+      placeholder: ""
     third_party_settings: {}
   field_weapons:
     type: string_textfield
@@ -96,7 +96,7 @@ content:
     region: content
     settings:
       size: 60
-      placeholder: ''
+      placeholder: ""
     third_party_settings: {}
 hidden:
   title: true
