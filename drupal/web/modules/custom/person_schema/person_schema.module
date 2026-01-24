@@ -6,14 +6,35 @@
  */
 
 /**
+ * Implements hook_node_presave().
+ */
+function person_schema_node_presave($node) {
+  if ($node->getType() == 'person') {
+    $given_name = $node->hasField('field_given_name') && !$node->get('field_given_name')->isEmpty()
+      ? $node->get('field_given_name')->value : '';
+    $family_name = $node->hasField('field_family_name') && !$node->get('field_family_name')->isEmpty()
+      ? $node->get('field_family_name')->value : '';
+
+    if (!empty($given_name) && !empty($family_name)) {
+      $title = $given_name . ' ' . $family_name;
+    } elseif (!empty($given_name)) {
+      $title = $given_name;
+    } elseif (!empty($family_name)) {
+      $title = $family_name;
+    } else {
+      $title = 'Unknown Person';
+    }
+
+    $node->setTitle($title);
+  }
+}
+
+/**
  * Implements hook_form_BASE_FORM_ID_alter().
  */
 function person_schema_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
   $node = $form_state->getFormObject()->getEntity();
   if ($node->bundle() == 'person') {
-    // Add JavaScript for hide/show functionality.
-    $form['#attached']['library'][] = 'person_schema/name_toggle';
-
     // Add submit handler to set name fields to 'Unknown' if name not known.
     $form['#submit'][] = 'person_schema_node_form_submit';
   }

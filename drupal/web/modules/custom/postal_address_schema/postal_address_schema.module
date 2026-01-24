@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * @file
+ * Contains postal_address_schema.module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_node_presave().
+ */
+function postal_address_schema_node_presave($node) {
+  if ($node->getType() == 'postal_address') {
+    if ($node->hasField('field_name') && !$node->get('field_name')->isEmpty()) {
+      $name = $node->get('field_name')->value;
+      $node->setTitle($name);
+    }
+  }
+}
