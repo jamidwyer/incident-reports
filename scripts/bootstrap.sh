@@ -15,7 +15,7 @@ if ! docker compose exec -T php test -f web/sites/default/settings.php; then
   docker compose exec -T php composer install
   docker compose exec -T php vendor/bin/drush site:install standard -y \
     --db-url='pgsql://drupal:drupal@db:5432/drupal' \
-    --site-name='Drupal Docker Starter' \
+    --site-name='Incident Reports' \
     --account-name=admin --account-pass=admin
 fi
 
