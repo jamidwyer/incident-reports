@@ -150,3 +150,12 @@ See `drupal/LICENSE.txt` for licensing information.
 - add nutrition content type
 - add business content type with address, name, tag, fields
 - provide graphql option
+
+## TODO
+
+- Theme
+- login bar
+- make all possible fields optional
+- security
+- decentralization
+- json_schema_validation,api_documentation,
