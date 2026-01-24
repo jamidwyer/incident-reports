@@ -6,3 +6,4 @@ package: Starter Schema
 dependencies:
   - drupal:image
   - outfit_schema:outfit_schema
+  - organization_schema:organization_schema

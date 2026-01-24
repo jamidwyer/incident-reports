@@ -11,12 +11,8 @@ bundle: person
 label: Name Known
 required: false
 settings:
-  on_label: 'On'
-  off_label: 'Off'
+  on_label: "On"
+  off_label: "Off"
 field_type: boolean
 default_value:
-  -
-    value: 1
-default_value:
-  -
-    value: 1
+  - value: 1

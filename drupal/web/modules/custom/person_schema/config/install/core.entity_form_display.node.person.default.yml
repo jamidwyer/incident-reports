@@ -30,10 +30,14 @@ content:
     settings: {}
     third_party_settings: {}
   field_employed_by:
-    type: string_textfield
+    type: entity_reference_autocomplete
     weight: 2
     region: content
-    settings: {}
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ""
     third_party_settings: {}
   field_hair_color:
     type: string_textfield

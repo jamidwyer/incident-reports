@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * @file
+ * Contains organization_schema.module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_node_presave().
+ */
+function organization_schema_node_presave($node) {
+  if ($node->getType() == 'organization') {
+    if ($node->hasField('field_name') && !$node->get('field_name')->isEmpty()) {
+      $name = $node->get('field_name')->value;
+      $node->setTitle($name);
+    }
+  }
+}

@@ -85,11 +85,22 @@ Persons involved in incidents can have the following attributes:
 
 - **Given Name**: First name
 - **Family Name**: Last name
+- **Employed By**: Reference to an Organization
 - **Outfit**: Description of clothing worn
 - **Hair Color**: Color of hair
 - **Eye Color**: Color of eyes
 - **Skin Color**: Skin tone
 - **Photos** (optional): Images of the person
+
+### Organization
+
+Organizations that employ persons:
+
+- **Name**: Name of the organization
+- **Abbreviation** (optional): Short form of the name
+- **Patches** (optional): Images of organization patches
+- **Badges** (optional): Images of organization badges
+- **Uniforms** (optional): Images of organization uniforms
 
 ### Place
 
@@ -126,6 +137,34 @@ You can enable additional modules after setup using Drush:
 docker compose exec php vendor/bin/drush en <module_name> -y
 ```
 
+### Updating After Module Changes
+
+When making changes to custom modules (e.g., adding new fields, altering forms, or updating configurations), follow these steps to apply the changes:
+
+1. **Rebuild and Restart Containers** (if code changes were made):
+   ```bash
+   docker compose down
+   docker compose up --build -d
+   ```
+
+2. **Install Drush** (if not already installed):
+   ```bash
+   docker compose exec php composer require drush/drush
+   ```
+
+3. **Reinstall the Module** to apply new configurations:
+   ```bash
+   docker compose exec php vendor/bin/drush pm-uninstall <module_name> -y
+   docker compose exec php vendor/bin/drush pm-install <module_name> -y
+   ```
+
+4. **Clear Cache**:
+   ```bash
+   docker compose exec php vendor/bin/drush cr
+   ```
+
+**Note:** If the module has dependencies or shared configurations, you may need to handle conflicts by deleting existing configs or using the admin UI for module management.
+
 ### Database
 
 The application uses PostgreSQL as the database backend. Database configuration is handled automatically during bootstrap.
@@ -153,9 +192,13 @@ See `drupal/LICENSE.txt` for licensing information.
 
 ## TODO
 
+- default page should be a searchable list of incidents with filters
+- internationalize
 - Theme
 - login bar
 - make all possible fields optional
 - security
 - decentralization
-- json_schema_validation,api_documentation,
+- disappeared data
+- json_schema_validation,api_documentation
+- jQuery in admin to plain JS

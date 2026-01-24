@@ -2,6 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - node.type.organization
     - node.type.person
     - field.storage.node.field_employed_by
 id: node.person.field_employed_by
@@ -10,5 +11,13 @@ entity_type: node
 bundle: person
 label: Employed By
 required: false
-settings: {}
-field_type: string
+settings:
+  handler: "default:node"
+  handler_settings:
+    target_bundles:
+      organization: organization
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ""
+field_type: entity_reference

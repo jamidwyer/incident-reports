@@ -1,0 +1,26 @@
+uuid: ff089f6b-ce1b-4630-a303-e63d723b6884
+langcode: en
+status: true
+dependencies: {}
+id: node.field_uniforms
+field_name: field_uniforms
+entity_type: node
+type: image
+settings:
+  uri_scheme: public
+  default_image:
+    uuid: null
+    alt: ""
+    title: ""
+    width: null
+    height: null
+  target_type: file
+  display_field: false
+  display_default: false
+module: image
+locked: false
+cardinality: -1
+translatable: false
+indexes: {}
+persist_with_no_fields: false
+custom_storage: false

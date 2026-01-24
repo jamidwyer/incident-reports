@@ -24,11 +24,12 @@ content:
     settings: {}
     third_party_settings: {}
   field_employed_by:
-    type: string
+    type: entity_reference_label
     label: above
     weight: 2
     region: content
-    settings: {}
+    settings:
+      link: true
     third_party_settings: {}
   field_hair_color:
     type: string
