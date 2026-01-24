@@ -1,0 +1,102 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.outfit.field_badges
+    - field.field.node.outfit.field_coat
+    - field.field.node.outfit.field_face_covering
+    - field.field.node.outfit.field_footwear
+    - field.field.node.outfit.field_hat
+    - field.field.node.outfit.field_pants
+    - field.field.node.outfit.field_patches
+    - field.field.node.outfit.field_shirt
+    - field.field.node.outfit.field_uniform
+    - field.field.node.outfit.field_weapons
+    - node.type.outfit
+id: node.outfit.default
+targetEntityType: node
+bundle: outfit
+mode: default
+content:
+  field_pants:
+    type: string
+    label: above
+    weight: 0
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {}
+  field_shirt:
+    type: string
+    label: above
+    weight: 1
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {}
+  field_coat:
+    type: string
+    label: above
+    weight: 2
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {}
+  field_uniform:
+    type: string
+    label: above
+    weight: 3
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {}
+  field_hat:
+    type: string
+    label: above
+    weight: 4
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {}
+  field_face_covering:
+    type: string
+    label: above
+    weight: 5
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {}
+  field_footwear:
+    type: string
+    label: above
+    weight: 6
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {}
+  field_badges:
+    type: string
+    label: above
+    weight: 7
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {}
+  field_patches:
+    type: string
+    label: above
+    weight: 8
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {}
+  field_weapons:
+    type: string
+    label: above
+    weight: 9
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {}
+hidden:
+  title: true

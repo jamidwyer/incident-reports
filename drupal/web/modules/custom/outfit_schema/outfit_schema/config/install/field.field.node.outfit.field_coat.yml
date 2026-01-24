@@ -1,0 +1,19 @@
+uuid: 12345678-1234-1234-1234-123456789abc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_coat
+    - node.type.outfit
+id: node.outfit.field_coat
+field_name: field_coat
+entity_type: node
+bundle: outfit
+label: Coat
+description: ''
+required: false
+translatable: false
+default_value: { }
+default_value_callback: ''
+settings: { }
+field_type: text

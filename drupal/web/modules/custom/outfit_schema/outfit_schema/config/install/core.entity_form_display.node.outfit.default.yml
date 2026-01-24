@@ -1,0 +1,102 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.outfit.field_badges
+    - field.field.node.outfit.field_coat
+    - field.field.node.outfit.field_face_covering
+    - field.field.node.outfit.field_footwear
+    - field.field.node.outfit.field_hat
+    - field.field.node.outfit.field_pants
+    - field.field.node.outfit.field_patches
+    - field.field.node.outfit.field_shirt
+    - field.field.node.outfit.field_uniform
+    - field.field.node.outfit.field_weapons
+    - node.type.outfit
+id: node.outfit.default
+targetEntityType: node
+bundle: outfit
+mode: default
+content:
+  field_pants:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {}
+  field_shirt:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {}
+  field_coat:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {}
+  field_uniform:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {}
+  field_hat:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {}
+  field_face_covering:
+    type: string_textfield
+    weight: 5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {}
+  field_footwear:
+    type: string_textfield
+    weight: 6
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {}
+  field_badges:
+    type: string_textfield
+    weight: 7
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {}
+  field_patches:
+    type: string_textfield
+    weight: 8
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {}
+  field_weapons:
+    type: string_textfield
+    weight: 9
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {}
+hidden:
+  title: true

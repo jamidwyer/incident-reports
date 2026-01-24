@@ -1,0 +1,19 @@
+uuid: 12345678-1234-1234-1234-123456789abd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_weapons
+    - node.type.outfit
+id: node.outfit.field_weapons
+field_name: field_weapons
+entity_type: node
+bundle: outfit
+label: Weapons
+description: ''
+required: false
+translatable: false
+default_value: { }
+default_value_callback: ''
+settings: { }
+field_type: text
