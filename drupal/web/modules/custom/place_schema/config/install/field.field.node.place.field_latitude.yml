@@ -11,6 +11,6 @@ bundle: place
 label: Latitude
 required: false
 settings:
-  min: "-90.00000000"
-  max: "90.00000000"
-field_type: decimal
+  min: "-90"
+  max: "90"
+field_type: float

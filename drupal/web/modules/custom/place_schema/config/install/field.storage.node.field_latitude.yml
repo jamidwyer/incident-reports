@@ -4,10 +4,8 @@ dependencies: {}
 id: node.field_latitude
 field_name: field_latitude
 entity_type: node
-type: decimal
-settings:
-  precision: 10
-  scale: 8
+type: float
+settings: {}
 module: core
 cardinality: 1
 translatable: false

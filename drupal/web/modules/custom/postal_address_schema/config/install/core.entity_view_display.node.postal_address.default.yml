@@ -1,0 +1,60 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.postal_address.field_address_country
+    - field.field.node.postal_address.field_address_locality
+    - field.field.node.postal_address.field_address_region
+    - field.field.node.postal_address.field_name
+    - field.field.node.postal_address.field_postal_code
+    - field.field.node.postal_address.field_street_address
+    - node.type.postal_address
+id: node.postal_address.default
+targetEntityType: node
+bundle: postal_address
+mode: default
+content:
+  field_name:
+    type: string
+    label: hidden
+    weight: 0
+    region: content
+    settings: {}
+    third_party_settings: {}
+  field_street_address:
+    type: string
+    label: above
+    weight: 1
+    region: content
+    settings: {}
+    third_party_settings: {}
+  field_address_locality:
+    type: string
+    label: above
+    weight: 2
+    region: content
+    settings: {}
+    third_party_settings: {}
+  field_address_region:
+    type: string
+    label: above
+    weight: 3
+    region: content
+    settings: {}
+    third_party_settings: {}
+  field_postal_code:
+    type: string
+    label: above
+    weight: 4
+    region: content
+    settings: {}
+    third_party_settings: {}
+  field_address_country:
+    type: string
+    label: above
+    weight: 5
+    region: content
+    settings: {}
+    third_party_settings: {}
+hidden:
+  title: true
