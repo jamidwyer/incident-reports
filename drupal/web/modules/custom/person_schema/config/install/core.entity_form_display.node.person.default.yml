@@ -2,6 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.person.field_name_known
     - field.field.node.person.field_photos
     - node.type.person
 id: node.person.default
@@ -9,6 +10,13 @@ targetEntityType: node
 bundle: person
 mode: default
 content:
+  field_name_known:
+    type: boolean_checkbox
+    weight: -1
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {}
   field_given_name:
     type: string_textfield
     weight: 0
@@ -59,4 +67,5 @@ content:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {}
-hidden: {}
+hidden:
+  title: true

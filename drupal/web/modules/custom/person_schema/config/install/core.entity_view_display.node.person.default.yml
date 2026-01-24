@@ -70,4 +70,5 @@ content:
       image_loading:
         attribute: lazy
     third_party_settings: {}
-hidden: {}
+hidden:
+  title: true

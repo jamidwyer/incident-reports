@@ -1,0 +1,8 @@
+name_toggle:
+  version: 1.x
+  js:
+    js/name_toggle.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings

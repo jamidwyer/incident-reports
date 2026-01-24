@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.person
+    - field.storage.node.field_name_known
+id: node.person.field_name_known
+field_name: field_name_known
+entity_type: node
+bundle: person
+label: Name Known
+required: false
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
+default_value:
+  -
+    value: 1
+default_value:
+  -
+    value: 1
