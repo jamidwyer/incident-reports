@@ -142,17 +142,20 @@ docker compose exec php vendor/bin/drush en <module_name> -y
 When making changes to custom modules (e.g., adding new fields, altering forms, or updating configurations), follow these steps to apply the changes:
 
 1. **Rebuild and Restart Containers** (if code changes were made):
+
    ```bash
    docker compose down
    docker compose up --build -d
    ```
 
 2. **Install Drush** (if not already installed):
+
    ```bash
    docker compose exec php composer require drush/drush
    ```
 
 3. **Reinstall the Module** to apply new configurations:
+
    ```bash
    docker compose exec php vendor/bin/drush pm-uninstall <module_name> -y
    docker compose exec php vendor/bin/drush pm-install <module_name> -y
@@ -192,8 +195,23 @@ See `drupal/LICENSE.txt` for licensing information.
 
 ## TODO
 
-- default page should be a searchable list of incidents with filters
 - internationalize
+- add videos to incident
+- add sources to incident
+- put it online
+- make it so folks can add all needed fields on the incident page
+- figure out crowdsourcing...
+- add view of Incidents to each content view, eg ICE has all its incidents in a list
+- outfit still needs work
+- add incident type enum (homicide, assault, arrest, neglect, medical malpractice), default sort by this
+- add victims as Person when you're _sure_ the website won't mix perps and victims
+- add optional Operator field to Place. can be Person or Organization?
+- add chain of command for both person and organization
+- remove powered by drupal not tryna get buytaert on a watchlist
+- add investigation field
+- REST
+- exportable as CSV
+- add salary to Person
 - Theme
 - login bar
 - make all possible fields optional
