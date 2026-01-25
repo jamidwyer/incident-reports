@@ -21,6 +21,7 @@ This module adds Google Translate functionality to the Incident content type for
 ## Installation
 
 1. Enable the module:
+
    ```bash
    drush pm:enable incident_translate
    ```
