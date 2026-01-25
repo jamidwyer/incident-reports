@@ -1,0 +1,7 @@
+incident_translate.settings:
+  path: '/admin/config/incident-translate'
+  defaults:
+    _form: '\Drupal\incident_translate\Form\IncidentTranslateSettingsForm'
+    _title: 'Incident Translate Settings'
+  requirements:
+    _permission: 'administer site configuration'

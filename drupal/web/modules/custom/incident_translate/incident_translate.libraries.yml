@@ -1,0 +1,12 @@
+incident_translate:
+  version: 1.x
+  js:
+    js/incident_translate.js: {}
+  css:
+    theme:
+      css/incident_translate.css: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings
+    - core/once

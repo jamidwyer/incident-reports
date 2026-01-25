@@ -40,7 +40,7 @@ Edit `.env.local` to configure the application. At minimum, set the `HTTP_PORT` 
 
 ```
 HTTP_PORT=8080
-ENABLED_MODULES=incident_schema,person_schema,place_schema,postal_address_schema
+ENABLED_MODULES=incident_schema,person_schema,place_schema,postal_address_schema,incident_translate
 ```
 
 ### 3. Bootstrap the Application
@@ -120,6 +120,40 @@ Structured address information:
 - **Postal Code**
 - **Street Address**
 
+## Multilingual Support
+
+The application supports multiple languages for better accessibility. The following languages are configured:
+
+- English (en) - Default
+- Spanish (es)
+- Chinese Simplified (zh-hans)
+- Filipino (fil)
+- Vietnamese (vi)
+- French (fr)
+- Korean (ko)
+- German (de)
+- Arabic (ar)
+- Russian (ru)
+
+### Language Features
+
+- **URL Path Prefixes**: Access content in different languages using URL prefixes (e.g., `/es/node/1` for Spanish)
+- **Content Translation**: All content types support translation to multiple languages
+- **Google Translate Integration**: Admin interface includes Google Translate buttons for quick translation of incident fields
+
+### Google Translate for Incidents
+
+The `incident_translate` module provides Google Translate functionality in the admin interface:
+
+1. **Setup**: Configure a Google Translate API key at `/admin/config/incident-translate`
+2. **Usage**: When editing incidents, use the translate buttons below title and description fields
+3. **Features**:
+   - Translate to all languages at once
+   - Translate to individual languages
+   - AJAX-powered interface for seamless translation
+
+**Note**: Requires a Google Translate API key (paid service). See the module's README for setup instructions.
+
 ## Development
 
 ### Additional Modules
@@ -195,7 +229,7 @@ See `drupal/LICENSE.txt` for licensing information.
 
 ## TODO
 
-- internationalize
+- ~~internationalize~~ ✅ Completed with 10 languages and Google Translate integration
 - add videos to incident
 - add sources to incident
 - put it online

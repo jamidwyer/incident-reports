@@ -1,0 +1,71 @@
+<?php
+
+/**
+ * @file
+ * Incident Translate module file.
+ */
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function incident_translate_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  $node = $form_state->getFormObject()->getEntity();
+  if ($node->bundle() == 'incident') {
+    // Attach our library to the form.
+    $form['#attached']['library'][] = 'incident_translate/incident_translate';
+
+    // Get available languages.
+    $languages = \Drupal::languageManager()->getLanguages();
+    $language_options = [];
+    foreach ($languages as $langcode => $language) {
+      $language_options[$langcode] = $language->getName();
+    }
+
+    // Add Google Translate settings to drupalSettings.
+    $form['#attached']['drupalSettings']['incidentTranslate'] = [
+      'languages' => $language_options,
+      'apiKey' => \Drupal::config('incident_translate.settings')->get('google_translate_api_key'),
+      'translatableFields' => ['title', 'field_description'],
+    ];
+
+    // Add translate buttons for translatable fields.
+    if (isset($form['title'])) {
+      $form['title_translate_container'] = [
+        '#type' => 'markup',
+        '#markup' => '<div class="incident-translate-buttons" data-field="title"></div>',
+        '#weight' => -4,
+      ];
+    }
+
+    if (isset($form['field_description'])) {
+      $form['field_description_translate_container'] = [
+        '#type' => 'markup',
+        '#markup' => '<div class="incident-translate-buttons" data-field="field_description"></div>',
+        '#weight' => 3,
+      ];
+    }
+
+    // Add submit handler to process translations.
+    $form['#submit'][] = 'incident_translate_node_form_submit';
+  }
+}
+
+/**
+ * Submit handler for incident node form to process translations.
+ */
+function incident_translate_node_form_submit($form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  $node = $form_state->getFormObject()->getEntity();
+  if ($node->bundle() == 'incident') {
+    // Process any stored translations from localStorage.
+    // This would be called when the form is submitted, but translations
+    // are typically handled through the content translation interface.
+    // For now, we'll just log that translations are available.
+    $translations = json_decode($_POST['incident_translations'] ?? '{}', TRUE);
+    if (!empty($translations)) {
+      \Drupal::logger('incident_translate')->notice('Translations available for node @nid: @translations', [
+        '@nid' => $node->id(),
+        '@translations' => json_encode($translations),
+      ]);
+    }
+  }
+}

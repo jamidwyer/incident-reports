@@ -1,0 +1,6 @@
+incident_translate.settings:
+  title: 'Incident Translate'
+  description: 'Configure Google Translate API settings for incident forms'
+  parent: system.admin_config
+  route_name: incident_translate.settings
+  weight: 100
