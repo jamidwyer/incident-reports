@@ -499,14 +499,7 @@ display:
       display_extenders: {}
       path: incidents
       menu:
-        type: normal
-        title: Incidents
-        description: ""
-        expanded: false
-        parent: ""
-        weight: 0
-        context: "0"
-        menu_name: main
+        type: none
     cache_metadata:
       max-age: -1
       contexts:

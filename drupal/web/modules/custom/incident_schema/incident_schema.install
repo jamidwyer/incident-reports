@@ -1,0 +1,42 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the Incident Schema module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function incident_schema_install() {
+  \Drupal::configFactory()
+    ->getEditable('system.site')
+    ->set('page.front', '/incidents')
+    ->save();
+}
+
+/**
+ * Set the Incidents page as the default front page.
+ */
+function incident_schema_update_9001() {
+  \Drupal::configFactory()
+    ->getEditable('system.site')
+    ->set('page.front', '/incidents')
+    ->save();
+}
+
+/**
+ * Remove the Incidents menu link from the main menu.
+ */
+function incident_schema_update_9002() {
+  $config = \Drupal::configFactory()->getEditable('views.view.incidents');
+  if ($config->isNew()) {
+    return;
+  }
+
+  $display = $config->get('display') ?: [];
+  if (isset($display['page_1']['display_options']['menu'])) {
+    $display['page_1']['display_options']['menu'] = ['type' => 'none'];
+    $config->set('display', $display)->save();
+  }
+}
