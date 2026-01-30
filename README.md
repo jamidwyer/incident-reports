@@ -66,6 +66,18 @@ Open your browser and navigate to: http://localhost:8080
 - Username: `admin`
 - Password: `admin`
 
+## Development
+
+```
+docker compose up -d --build
+docker compose exec php composer install
+docker compose exec php vendor/bin/drush cex -y
+```
+
+## Deploy
+
+`docker compose -f docker-compose.yml -f docker-compose.prod.yml --env-file .env.prod up -d --build`
+
 ## Content Types
 
 ### Incident
@@ -229,7 +241,11 @@ See `drupal/LICENSE.txt` for licensing information.
 
 ## TODO
 
-- ~~internationalize~~ ✅ Completed with 10 languages and Google Translate integration
+- add language toggle
+- deploy
+- translate all to spanish
+- somalian
+- hmong
 - add videos to incident
 - add sources to incident
 - put it online
@@ -253,4 +269,5 @@ See `drupal/LICENSE.txt` for licensing information.
 - decentralization
 - disappeared data
 - json_schema_validation,api_documentation
+- drupal not in php container
 - jQuery in admin to plain JS
