@@ -13,6 +13,8 @@ function incident_schema_install() {
     ->getEditable('system.site')
     ->set('page.front', '/incidents')
     ->save();
+
+  incident_schema_place_language_switcher_block();
 }
 
 /**
@@ -39,4 +41,130 @@ function incident_schema_update_9002() {
     $display['page_1']['display_options']['menu'] = ['type' => 'none'];
     $config->set('display', $display)->save();
   }
+}
+
+/**
+ * Place the language switcher block in the header region.
+ */
+function incident_schema_update_9003() {
+  incident_schema_place_language_switcher_block();
+}
+
+/**
+ * Move the language switcher block into the primary nav region when available.
+ */
+function incident_schema_update_9004() {
+  if (!\Drupal::moduleHandler()->moduleExists('language')) {
+    return;
+  }
+
+  $theme = \Drupal::config('system.theme')->get('default');
+  if (!$theme) {
+    return;
+  }
+
+  $block_id = $theme . '_language_switcher';
+  $block = \Drupal::entityTypeManager()->getStorage('block')->load($block_id);
+  if (!$block) {
+    return;
+  }
+
+  $theme_info = \Drupal::service('theme_handler')->getTheme($theme);
+  $regions = $theme_info ? array_keys($theme_info->info['regions'] ?? []) : [];
+  if (in_array('primary_menu', $regions, true)) {
+    $block->setRegion('primary_menu');
+    $block->save();
+  }
+}
+
+/**
+ * Create the language switcher block and place it in the primary nav region.
+ */
+function incident_schema_update_9005() {
+  incident_schema_place_language_switcher_block();
+
+  if (!\Drupal::moduleHandler()->moduleExists('language')) {
+    return;
+  }
+
+  $theme = \Drupal::config('system.theme')->get('default');
+  if (!$theme) {
+    return;
+  }
+
+  $block_id = $theme . '_language_switcher';
+  $block = \Drupal::entityTypeManager()->getStorage('block')->load($block_id);
+  if (!$block) {
+    return;
+  }
+
+  $theme_info = \Drupal::service('theme_handler')->getTheme($theme);
+  $regions = $theme_info ? array_keys($theme_info->info['regions'] ?? []) : [];
+  if (in_array('primary_menu', $regions, true)) {
+    $block->setRegion('primary_menu');
+    $block->save();
+  }
+}
+
+/**
+ * Create the language switcher block for the default theme if needed.
+ */
+function incident_schema_place_language_switcher_block() {
+  if (!\Drupal::moduleHandler()->moduleExists('language')) {
+    return;
+  }
+
+  $theme = \Drupal::config('system.theme')->get('default');
+  if (!$theme) {
+    return;
+  }
+
+  $block_id = $theme . '_language_switcher';
+  if (\Drupal::entityTypeManager()->getStorage('block')->load($block_id)) {
+    return;
+  }
+
+  $theme_info = \Drupal::service('theme_handler')->getTheme($theme);
+  $regions = $theme_info ? array_keys($theme_info->info['regions'] ?? []) : [];
+  if (!$regions) {
+    return;
+  }
+
+  $preferred_regions = [
+    'header',
+    'primary_menu',
+    'secondary_menu',
+    'navigation',
+    'menu',
+    'top',
+    'topbar',
+    'highlighted',
+  ];
+
+  $region = '';
+  foreach ($preferred_regions as $candidate) {
+    if (in_array($candidate, $regions, true)) {
+      $region = $candidate;
+      break;
+    }
+  }
+  if ($region === '') {
+    $region = $regions[0];
+  }
+
+  $block = \Drupal\block\Entity\Block::create([
+    'id' => $block_id,
+    'theme' => $theme,
+    'region' => $region,
+    'weight' => -10,
+    'plugin' => 'language_block:language_interface',
+    'settings' => [
+      'id' => 'language_block:language_interface',
+      'label' => 'Language',
+      'label_display' => '0',
+      'provider' => 'language',
+    ],
+    'visibility' => [],
+  ]);
+  $block->save();
 }
