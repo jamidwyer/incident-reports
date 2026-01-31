@@ -53,6 +53,15 @@ then
   fi
 fi
 
+# Ensure themes and config are applied after install (even with existing-config).
+docker compose exec -T php bash -lc \
+  "cd /var/www/html && \
+   vendor/bin/drush theme:enable olivero claro -y && \
+   vendor/bin/drush cset system.theme default olivero -y && \
+   vendor/bin/drush cset system.theme admin claro -y && \
+   vendor/bin/drush cim -y && \
+   vendor/bin/drush cr"
+
 # Enable optional modules (ENABLED_MODULES=a,b,c)
 if [ -n "${ENABLED_MODULES:-}" ]; then
   IFS="," read -ra enabled_modules <<< "$ENABLED_MODULES"
