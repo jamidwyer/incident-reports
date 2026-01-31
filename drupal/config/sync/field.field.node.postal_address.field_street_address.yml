@@ -1,0 +1,20 @@
+uuid: 391e7927-5222-4ea3-b922-c4f9b09580dd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_street_address
+    - node.type.postal_address
+id: node.postal_address.field_street_address
+field_name: field_street_address
+entity_type: node
+bundle: postal_address
+label: 'Street Address'
+description: 'The street address of the postal address'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: string

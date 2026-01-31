@@ -1,0 +1,16 @@
+uuid: 1229d88f-b840-4767-81fc-ed477973063d
+langcode: en
+status: true
+dependencies: {  }
+id: node.field_longitude
+field_name: field_longitude
+entity_type: node
+type: float
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: false
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

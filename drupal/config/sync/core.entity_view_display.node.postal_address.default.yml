@@ -1,0 +1,68 @@
+uuid: c0c7b037-e0cf-47bd-a641-a78c8c77282a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.postal_address.field_address_country
+    - field.field.node.postal_address.field_address_locality
+    - field.field.node.postal_address.field_address_region
+    - field.field.node.postal_address.field_name
+    - field.field.node.postal_address.field_postal_code
+    - field.field.node.postal_address.field_street_address
+    - node.type.postal_address
+  module:
+    - user
+id: node.postal_address.default
+targetEntityType: node
+bundle: postal_address
+mode: default
+content:
+  field_address_country:
+    type: string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_address_locality:
+    type: string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_address_region:
+    type: string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_name:
+    type: string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_postal_code:
+    type: string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_street_address:
+    type: string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

@@ -1,0 +1,81 @@
+uuid: 902153ae-d871-43e4-9601-c7a2824eced7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.incident.field_description
+    - field.field.node.incident.field_incident_time
+    - field.field.node.incident.field_persons
+    - field.field.node.incident.field_photos
+    - field.field.node.incident.field_place
+    - field.field.node.incident.field_reporter
+    - node.type.incident
+  module:
+    - datetime
+    - image
+    - text
+    - user
+id: node.incident.default
+targetEntityType: node
+bundle: incident
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_incident_time:
+    type: datetime_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_persons:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_photos:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_place:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_reporter:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+hidden:
+  langcode: true
+  links: true

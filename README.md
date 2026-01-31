@@ -56,6 +56,17 @@ This script will:
 - Start the Docker containers (PostgreSQL, Nginx, PHP-FPM)
 - Install Drupal with the standard profile
 - Enable the specified modules
+- Use config from `drupal/config/sync` when present (existing-config install)
+
+### Config Sync (Required for Code-First Installs)
+
+For new environments to get content types and settings automatically, export config to the repo:
+
+```bash
+docker compose exec php vendor/bin/drush cex -y
+```
+
+This writes to `drupal/config/sync` (configured by `scripts/bootstrap.sh`). Commit that directory so fresh installs can use `--existing-config`.
 
 ### 4. Access the Application
 
@@ -131,7 +142,10 @@ You can extend functionality by modifying the modules in `drupal/web/modules/cus
 
 ## Deploy
 
-`docker compose -f docker-compose.yml -f docker-compose.prod.yml --env-file .env.prod up -d --build`
+```
+./scripts/bootstrap.sh .env.prod
+docker compose -f docker-compose.yml -f docker-compose.prod.yml --env-file .env.prod up -d --build
+```
 
 ## Content Types
 
@@ -239,6 +253,7 @@ See `drupal/LICENSE.txt` for licensing information.
 - haitian?
 - add vehicle content type
 - add videos to incident
+- outfit needs to be better
 - add sources to incident
 - put it online
 - make it so folks can add all needed fields on the incident page

@@ -1,0 +1,19 @@
+uuid: bc81160b-f046-462e-beb8-849a15760c07
+langcode: en
+status: true
+dependencies: {  }
+id: node.field_family_name
+field_name: field_family_name
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: false
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

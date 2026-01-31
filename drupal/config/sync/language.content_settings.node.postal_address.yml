@@ -1,0 +1,18 @@
+uuid: a1c7dc79-944d-4a5b-8f53-6f5fbda76847
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.postal_address
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: node.postal_address
+target_entity_type_id: node
+target_bundle: postal_address
+default_langcode: site_default
+language_alterable: true

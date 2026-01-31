@@ -1,0 +1,13 @@
+uuid: e981eabc-322c-41cc-8daa-1ce548c6d158
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: MnQVFsgdqZO82k4M17qhvdkGk0dbXEbKFcfjCARN-AU
+name: Outfit
+type: outfit
+description: 'An outfit worn by a person.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

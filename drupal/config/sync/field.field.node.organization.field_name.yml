@@ -1,0 +1,21 @@
+uuid: ee089f6b-ce1b-4630-a303-e63d723b6880
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_name
+    - node.type.organization
+_core:
+  default_config_hash: WnqCU6x1xaYkNVpb_NmXei3cnO_W0pzl3PomRxlxEhw
+id: node.organization.field_name
+field_name: field_name
+entity_type: node
+bundle: organization
+label: Name
+description: 'The full name of the organization'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

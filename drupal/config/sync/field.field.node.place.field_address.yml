@@ -1,0 +1,24 @@
+uuid: 03fad069-09b3-4a6a-a26d-6143a5c601ba
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_address
+    - node.type.place
+    - node.type.postal_address
+id: node.place.field_address
+field_name: field_address
+entity_type: node
+bundle: place
+label: Address
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      postal_address: postal_address
+field_type: entity_reference

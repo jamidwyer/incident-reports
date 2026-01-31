@@ -1,0 +1,125 @@
+uuid: ba698557-141d-40a6-bbb9-cff72fd01c02
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.person.field_employed_by
+    - field.field.node.person.field_eye_color
+    - field.field.node.person.field_family_name
+    - field.field.node.person.field_given_name
+    - field.field.node.person.field_hair_color
+    - field.field.node.person.field_name_known
+    - field.field.node.person.field_outfit
+    - field.field.node.person.field_photos
+    - field.field.node.person.field_skin_color
+    - image.style.thumbnail
+    - node.type.person
+  module:
+    - image
+    - path
+id: node.person.default
+targetEntityType: node
+bundle: person
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_employed_by:
+    type: entity_reference_autocomplete
+    weight: 2
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_eye_color:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_family_name:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_given_name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_hair_color:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_name_known:
+    type: boolean_checkbox
+    weight: -1
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_outfit:
+    type: entity_reference_autocomplete
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_photos:
+    type: image_image
+    weight: 7
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_skin_color:
+    type: string_textfield
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 120
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 5
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  promote: true
+  sticky: true
+  title: true

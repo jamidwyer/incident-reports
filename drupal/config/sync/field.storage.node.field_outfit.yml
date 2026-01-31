@@ -1,0 +1,17 @@
+uuid: a4a956c8-ee92-44a9-8859-253d6c3358f2
+langcode: en
+status: true
+dependencies: {  }
+id: node.field_outfit
+field_name: field_outfit
+entity_type: node
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: 1
+translatable: false
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

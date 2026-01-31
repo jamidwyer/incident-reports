@@ -1,0 +1,16 @@
+uuid: 29fedc49-a9fb-44e7-a876-e43ac912453a
+langcode: en
+status: true
+dependencies: {  }
+id: node.field_latitude
+field_name: field_latitude
+entity_type: node
+type: float
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: false
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

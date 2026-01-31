@@ -1,0 +1,20 @@
+uuid: 4a438157-bbf8-44e9-b743-5955c928c096
+langcode: en
+status: true
+dependencies:
+  module:
+    - datetime
+    - node
+id: node.field_incident_time
+field_name: field_incident_time
+entity_type: node
+type: datetime
+settings:
+  datetime_type: datetime
+module: datetime
+locked: false
+cardinality: 1
+translatable: false
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

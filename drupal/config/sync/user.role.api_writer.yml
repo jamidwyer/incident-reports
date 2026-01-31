@@ -1,0 +1,13 @@
+uuid: e63bdc2b-8d8e-4eb3-b7ea-952508f7dbd6
+langcode: en
+status: true
+dependencies: {  }
+id: api_writer
+label: 'API Writer'
+weight: 1
+is_admin: false
+permissions:
+  - 'access content'
+  - 'create incident content'
+  - 'restful get entity:node'
+  - 'restful post entity:node'

@@ -20,15 +20,37 @@ docker compose exec -T db bash -lc 'until pg_isready -U drupal -d drupal >/dev/n
 # Ensure deps exist (drush lives in vendor/)
 docker compose exec -T php bash -lc 'cd /var/www/html && composer install'
 
+# Ensure settings.php exists and points to the repo config sync directory.
+docker compose exec -T php bash -lc '\
+  cd /var/www/html && \
+  if [ ! -f web/sites/default/settings.php ]; then \
+    cp web/sites/default/default.settings.php web/sites/default/settings.php; \
+  fi && \
+  chmod 664 web/sites/default/settings.php && \
+  if ! grep -q "config_sync_directory" web/sites/default/settings.php; then \
+    printf "\n\\$settings[\"config_sync_directory\"] = \"/var/www/html/config/sync\";\n" >> web/sites/default/settings.php; \
+  fi'
+
 # Install Drupal if DB is empty (key_value table missing)
 if ! docker compose exec -T db bash -lc \
   "psql -U drupal -d drupal -tAc \"select 1 from information_schema.tables where table_schema='public' and table_name='key_value';\" | grep -q 1"
 then
-  docker compose exec -T php bash -lc \
-    "cd /var/www/html && vendor/bin/drush site:install standard -y \
-      --db-url='pgsql://drupal:drupal@db:5432/drupal' \
-      --site-name='Incident Reports' \
-      --account-name=admin --account-pass=admin"
+  if docker compose exec -T php bash -lc \
+    "cd /var/www/html && ls -1 config/sync/*.yml >/dev/null 2>&1"
+  then
+    docker compose exec -T php bash -lc \
+      "cd /var/www/html && vendor/bin/drush site:install standard -y \
+        --existing-config \
+        --db-url='pgsql://drupal:drupal@db:5432/drupal' \
+        --site-name='Incident Reports' \
+        --account-name=admin --account-pass=admin"
+  else
+    docker compose exec -T php bash -lc \
+      "cd /var/www/html && vendor/bin/drush site:install standard -y \
+        --db-url='pgsql://drupal:drupal@db:5432/drupal' \
+        --site-name='Incident Reports' \
+        --account-name=admin --account-pass=admin"
+  fi
 fi
 
 # Enable optional modules (ENABLED_MODULES=a,b,c)

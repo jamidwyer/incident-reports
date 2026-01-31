@@ -1,0 +1,11 @@
+uuid: 05c01b5d-79d1-4a3b-a40f-8a2013675c9e
+langcode: en
+status: true
+dependencies: {  }
+name: Person
+type: person
+description: 'A person involved in an incident.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false
