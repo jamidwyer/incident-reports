@@ -39,7 +39,7 @@ then
     "cd /var/www/html && ls -1 config/sync/*.yml >/dev/null 2>&1"
   then
     docker compose exec -T php bash -lc \
-      "cd /var/www/html && vendor/bin/drush site:install standard -y \
+      "cd /var/www/html && vendor/bin/drush site:install minimal -y \
         --existing-config \
         --db-url='pgsql://drupal:drupal@db:5432/drupal' \
         --site-name='Incident Reports' \
