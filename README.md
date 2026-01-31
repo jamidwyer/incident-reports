@@ -74,6 +74,61 @@ docker compose exec php composer install
 docker compose exec php vendor/bin/drush cex -y
 ```
 
+### Enabling Modules Manually
+
+You can enable additional modules after setup using Drush:
+
+```bash
+docker compose exec php vendor/bin/drush en <module_name> -y
+```
+
+### Updating After Module Changes
+
+When making changes to custom modules (e.g., adding new fields, altering forms, or updating configurations), follow these steps to apply the changes:
+
+1. **Rebuild and Restart Containers** (if code changes were made):
+
+   ```bash
+   docker compose down
+   docker compose up --build -d
+   ```
+
+2. **Install Drush** (if not already installed):
+
+   ```bash
+   docker compose exec php composer require drush/drush
+   ```
+
+3. **Reinstall the Module** to apply new configurations:
+
+   ```bash
+   docker compose exec php vendor/bin/drush pm-uninstall <module_name> -y
+   docker compose exec php vendor/bin/drush pm-install <module_name> -y
+   ```
+
+4. **Clear Cache**:
+   ```bash
+   docker compose exec php vendor/bin/drush cr
+   ```
+
+**Note:** If the module has dependencies or shared configurations, you may need to handle conflicts by deleting existing configs or using the admin UI for module management.
+
+### Database
+
+The application uses PostgreSQL as the database backend. Database configuration is handled automatically during bootstrap.
+
+### Customization
+
+You can extend functionality by modifying the modules in `drupal/web/modules/custom/` or adding new ones.
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test locally
+5. Submit a pull request
+
 ## Deploy
 
 `docker compose -f docker-compose.yml -f docker-compose.prod.yml --env-file .env.prod up -d --build`
@@ -166,70 +221,6 @@ The `incident_translate` module provides Google Translate functionality in the a
 
 **Note**: Requires a Google Translate API key (paid service). See the module's README for setup instructions.
 
-## Development
-
-### Additional Modules
-
-The project includes several optional modules that can be enabled via `ENABLED_MODULES` in your `.env.local`:
-
-- `organization_schema`: For organizational entities
-- `outfit_schema`: Additional outfit management
-
-### Enabling Modules Manually
-
-You can enable additional modules after setup using Drush:
-
-```bash
-docker compose exec php vendor/bin/drush en <module_name> -y
-```
-
-### Updating After Module Changes
-
-When making changes to custom modules (e.g., adding new fields, altering forms, or updating configurations), follow these steps to apply the changes:
-
-1. **Rebuild and Restart Containers** (if code changes were made):
-
-   ```bash
-   docker compose down
-   docker compose up --build -d
-   ```
-
-2. **Install Drush** (if not already installed):
-
-   ```bash
-   docker compose exec php composer require drush/drush
-   ```
-
-3. **Reinstall the Module** to apply new configurations:
-
-   ```bash
-   docker compose exec php vendor/bin/drush pm-uninstall <module_name> -y
-   docker compose exec php vendor/bin/drush pm-install <module_name> -y
-   ```
-
-4. **Clear Cache**:
-   ```bash
-   docker compose exec php vendor/bin/drush cr
-   ```
-
-**Note:** If the module has dependencies or shared configurations, you may need to handle conflicts by deleting existing configs or using the admin UI for module management.
-
-### Database
-
-The application uses PostgreSQL as the database backend. Database configuration is handled automatically during bootstrap.
-
-### Customization
-
-You can extend functionality by modifying the modules in `drupal/web/modules/custom/` or adding new ones.
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test locally
-5. Submit a pull request
-
 ## License
 
 See `drupal/LICENSE.txt` for licensing information.
@@ -241,11 +232,12 @@ See `drupal/LICENSE.txt` for licensing information.
 
 ## TODO
 
-- add language toggle
 - deploy
 - translate all to spanish
 - somalian
 - hmong
+- haitian?
+- add vehicle content type
 - add videos to incident
 - add sources to incident
 - put it online
@@ -262,6 +254,7 @@ See `drupal/LICENSE.txt` for licensing information.
 - REST
 - exportable as CSV
 - add salary to Person
+- google translate key to .env
 - Theme
 - login bar
 - make all possible fields optional
