@@ -13,6 +13,9 @@
         }
         $container.addClass("incident-translate-processed");
 
+        // Populate the current language field if we previously stored a translation.
+        applyStoredTranslation(fieldName, $container);
+
         // Check if API key is configured
         if (!settings.incidentTranslate || !settings.incidentTranslate.apiKey) {
           $container.append(
@@ -123,6 +126,11 @@
           JSON.stringify(translations),
         );
 
+        // If translation fields exist on the page, populate them immediately.
+        $.each(translations, function (langCode, translatedText) {
+          setTranslationFieldValue(fieldName, langCode, translatedText);
+        });
+
         $container
           .find(".incident-translate-btn")
           .prop("disabled", false)
@@ -145,6 +153,56 @@
           .text("Translation Failed");
         alert("Translation failed. Please check your API key and try again.");
       });
+  }
+
+  function applyStoredTranslation(fieldName, $container) {
+    var $field = getFieldElement(fieldName);
+    if (!$field.length) {
+      return;
+    }
+
+    var currentLang = $("html").attr("lang") || "en";
+    var raw = localStorage.getItem("incident_translations_" + fieldName);
+    if (!raw) {
+      return;
+    }
+
+    var translations = {};
+    try {
+      translations = JSON.parse(raw);
+    } catch (e) {
+      return;
+    }
+
+    if (!translations[currentLang]) {
+      return;
+    }
+
+    if ($field.val()) {
+      return;
+    }
+
+    $field.val(translations[currentLang]);
+  }
+
+  function setTranslationFieldValue(fieldName, langCode, translatedText) {
+    var $target = $(
+      '[data-incident-translate-field="' +
+        fieldName +
+        '"][data-incident-translate-lang="' +
+        langCode +
+        '"]',
+    );
+    if (!$target.length) {
+      var namePrefix =
+        fieldName === "title"
+          ? "incident_translation_title"
+          : "incident_translation_description";
+      $target = $('[name="' + namePrefix + '[' + langCode + ']"]');
+    }
+    if ($target.length) {
+      $target.val(translatedText).trigger("change");
+    }
   }
 
   function translateFieldToLanguage(fieldName, targetLang, $container) {

@@ -1,0 +1,75 @@
+uuid: ca2e3c63-6b3e-434e-aa57-48f78b6d64c4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.organization.field_abbreviation
+    - field.field.node.organization.field_badges
+    - field.field.node.organization.field_name
+    - field.field.node.organization.field_patches
+    - field.field.node.organization.field_uniforms
+    - node.type.organization
+  module:
+    - image
+    - user
+_core:
+  default_config_hash: tq0JfmP3wbzqFz7K5UBarBfuCiv-l8CcafJUvMblLmQ
+id: node.organization.default
+targetEntityType: node
+bundle: organization
+mode: default
+content:
+  field_abbreviation:
+    type: string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_badges:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_name:
+    type: string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_patches:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_uniforms:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

@@ -1,0 +1,28 @@
+uuid: e4d06880-5393-4966-85c5-5df145f37b38
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_employed_by
+    - node.type.organization
+    - node.type.person
+id: node.person.field_employed_by
+field_name: field_employed_by
+entity_type: node
+bundle: person
+label: 'Employed By'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      organization: organization
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

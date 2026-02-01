@@ -56,6 +56,17 @@ This script will:
 - Start the Docker containers (PostgreSQL, Nginx, PHP-FPM)
 - Install Drupal with the standard profile
 - Enable the specified modules
+- Use config from `drupal/config/sync` when present (existing-config install)
+
+### Config Sync (Required for Code-First Installs)
+
+For new environments to get content types and settings automatically, export config to the repo:
+
+```bash
+docker compose exec php vendor/bin/drush cex -y
+```
+
+This writes to `drupal/config/sync` (configured by `scripts/bootstrap.sh`). Commit that directory so fresh installs can use `--existing-config`.
 
 ### 4. Access the Application
 
@@ -65,6 +76,76 @@ Open your browser and navigate to: http://localhost:8080
 
 - Username: `admin`
 - Password: `admin`
+
+## Development
+
+```
+docker compose up -d --build
+docker compose exec php composer install
+docker compose exec php vendor/bin/drush cex -y
+```
+
+### Enabling Modules Manually
+
+You can enable additional modules after setup using Drush:
+
+```bash
+docker compose exec php vendor/bin/drush en <module_name> -y
+```
+
+### Updating After Module Changes
+
+When making changes to custom modules (e.g., adding new fields, altering forms, or updating configurations), follow these steps to apply the changes:
+
+1. **Rebuild and Restart Containers** (if code changes were made):
+
+   ```bash
+   docker compose down
+   docker compose up --build -d
+   ```
+
+2. **Install Drush** (if not already installed):
+
+   ```bash
+   docker compose exec php composer require drush/drush
+   ```
+
+3. **Reinstall the Module** to apply new configurations:
+
+   ```bash
+   docker compose exec php vendor/bin/drush pm-uninstall <module_name> -y
+   docker compose exec php vendor/bin/drush pm-install <module_name> -y
+   ```
+
+4. **Clear Cache**:
+   ```bash
+   docker compose exec php vendor/bin/drush cr
+   ```
+
+**Note:** If the module has dependencies or shared configurations, you may need to handle conflicts by deleting existing configs or using the admin UI for module management.
+
+### Database
+
+The application uses PostgreSQL as the database backend. Database configuration is handled automatically during bootstrap.
+
+### Customization
+
+You can extend functionality by modifying the modules in `drupal/web/modules/custom/` or adding new ones.
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test locally
+5. Submit a pull request
+
+## Deploy
+
+```
+./scripts/bootstrap.sh .env.prod
+docker compose -f docker-compose.yml -f docker-compose.prod.yml --env-file .env.prod up -d --build
+```
 
 ## Content Types
 
@@ -154,70 +235,6 @@ The `incident_translate` module provides Google Translate functionality in the a
 
 **Note**: Requires a Google Translate API key (paid service). See the module's README for setup instructions.
 
-## Development
-
-### Additional Modules
-
-The project includes several optional modules that can be enabled via `ENABLED_MODULES` in your `.env.local`:
-
-- `organization_schema`: For organizational entities
-- `outfit_schema`: Additional outfit management
-
-### Enabling Modules Manually
-
-You can enable additional modules after setup using Drush:
-
-```bash
-docker compose exec php vendor/bin/drush en <module_name> -y
-```
-
-### Updating After Module Changes
-
-When making changes to custom modules (e.g., adding new fields, altering forms, or updating configurations), follow these steps to apply the changes:
-
-1. **Rebuild and Restart Containers** (if code changes were made):
-
-   ```bash
-   docker compose down
-   docker compose up --build -d
-   ```
-
-2. **Install Drush** (if not already installed):
-
-   ```bash
-   docker compose exec php composer require drush/drush
-   ```
-
-3. **Reinstall the Module** to apply new configurations:
-
-   ```bash
-   docker compose exec php vendor/bin/drush pm-uninstall <module_name> -y
-   docker compose exec php vendor/bin/drush pm-install <module_name> -y
-   ```
-
-4. **Clear Cache**:
-   ```bash
-   docker compose exec php vendor/bin/drush cr
-   ```
-
-**Note:** If the module has dependencies or shared configurations, you may need to handle conflicts by deleting existing configs or using the admin UI for module management.
-
-### Database
-
-The application uses PostgreSQL as the database backend. Database configuration is handled automatically during bootstrap.
-
-### Customization
-
-You can extend functionality by modifying the modules in `drupal/web/modules/custom/` or adding new ones.
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test locally
-5. Submit a pull request
-
 ## License
 
 See `drupal/LICENSE.txt` for licensing information.
@@ -229,23 +246,28 @@ See `drupal/LICENSE.txt` for licensing information.
 
 ## TODO
 
-- ~~internationalize~~ ✅ Completed with 10 languages and Google Translate integration
+- merge
+- react fe that show incidents list and individual incident details
+- translate all to spanish
+- somalian
+- hmong (vietnamese?)
+- haitian?
+- add vehicle content type
 - add videos to incident
+- outfit needs to be better
 - add sources to incident
-- put it online
 - make it so folks can add all needed fields on the incident page
 - figure out crowdsourcing...
 - add view of Incidents to each content view, eg ICE has all its incidents in a list
-- outfit still needs work
-- add incident type enum (homicide, assault, arrest, neglect, medical malpractice), default sort by this
+- add incident type enum (murder, homicide, assault, kidnapping, arrest, neglect, medical malpractice), default sort by this
 - add victims as Person when you're _sure_ the website won't mix perps and victims
 - add optional Operator field to Place. can be Person or Organization?
 - add chain of command for both person and organization
 - remove powered by drupal not tryna get buytaert on a watchlist
-- add investigation field
-- REST
+- add Investigation field
 - exportable as CSV
 - add salary to Person
+- google translate key to .env
 - Theme
 - login bar
 - make all possible fields optional
@@ -253,4 +275,5 @@ See `drupal/LICENSE.txt` for licensing information.
 - decentralization
 - disappeared data
 - json_schema_validation,api_documentation
+- drupal not in php container
 - jQuery in admin to plain JS

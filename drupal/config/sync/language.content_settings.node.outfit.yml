@@ -1,0 +1,18 @@
+uuid: 909a2181-feac-4e02-956b-b2b56be0b12f
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.outfit
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: node.outfit
+target_entity_type_id: node
+target_bundle: outfit
+default_langcode: site_default
+language_alterable: true

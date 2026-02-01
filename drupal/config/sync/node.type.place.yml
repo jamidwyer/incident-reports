@@ -1,0 +1,11 @@
+uuid: 79d9b5b0-14c5-4f2c-9738-e08e42b30399
+langcode: en
+status: true
+dependencies: {  }
+name: Place
+type: place
+description: 'A Place content type for schema.org Place with address and coordinates.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

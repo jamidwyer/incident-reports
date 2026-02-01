@@ -1,0 +1,21 @@
+uuid: ec660eda-74dc-4452-95c7-b53a52d10224
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_incident_time
+    - node.type.incident
+  module:
+    - datetime
+id: node.incident.field_incident_time
+field_name: field_incident_time
+entity_type: node
+bundle: incident
+label: 'Incident time'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

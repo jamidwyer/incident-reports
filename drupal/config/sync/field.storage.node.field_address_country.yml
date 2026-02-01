@@ -1,0 +1,19 @@
+uuid: fb996e58-5bda-48ed-8c4c-5097d85a2f65
+langcode: en
+status: true
+dependencies: {  }
+id: node.field_address_country
+field_name: field_address_country
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: false
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

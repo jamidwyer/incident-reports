@@ -1,0 +1,93 @@
+uuid: d606e20b-c8a4-48d8-bf99-98e1a85cd689
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.person.field_employed_by
+    - field.field.node.person.field_eye_color
+    - field.field.node.person.field_family_name
+    - field.field.node.person.field_given_name
+    - field.field.node.person.field_hair_color
+    - field.field.node.person.field_name_known
+    - field.field.node.person.field_outfit
+    - field.field.node.person.field_photos
+    - field.field.node.person.field_skin_color
+    - node.type.person
+  module:
+    - image
+    - user
+id: node.person.default
+targetEntityType: node
+bundle: person
+mode: default
+content:
+  field_employed_by:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_eye_color:
+    type: string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_family_name:
+    type: string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_given_name:
+    type: string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_hair_color:
+    type: string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_outfit:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_photos:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_skin_color:
+    type: string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_name_known: true
+  langcode: true

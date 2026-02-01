@@ -1,0 +1,23 @@
+uuid: a5efe42c-b74d-4e69-8a43-d78e15007b86
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_name_known
+    - node.type.person
+id: node.person.field_name_known
+field_name: field_name_known
+entity_type: node
+bundle: person
+label: 'Name Known'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

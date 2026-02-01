@@ -1,0 +1,24 @@
+uuid: fbf4b0f2-8268-4b0b-b85b-7e66bb5fd66c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_outfit
+    - node.type.outfit
+    - node.type.person
+id: node.person.field_outfit
+field_name: field_outfit
+entity_type: node
+bundle: person
+label: Outfit
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      outfit: outfit
+field_type: entity_reference

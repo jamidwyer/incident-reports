@@ -1,0 +1,17 @@
+uuid: 8dd11d35-d811-4521-835e-951d7e790a95
+langcode: en
+status: true
+dependencies: {  }
+id: node.field_employed_by
+field_name: field_employed_by
+entity_type: node
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: 1
+translatable: false
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

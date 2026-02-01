@@ -1,19 +1,21 @@
-uuid: 12345678-1234-1234-1234-123456789abd
+uuid: 34c428ee-5732-412e-a81d-c7720065e205
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_patches
     - node.type.outfit
+  module:
+    - organization_schema
 id: node.outfit.field_patches
 field_name: field_patches
 entity_type: node
 bundle: outfit
 label: Patches
-description: ''
+description: ""
 required: false
 translatable: false
-default_value: { }
-default_value_callback: ''
-settings: { }
-field_type: text
+default_value: {}
+default_value_callback: ""
+settings: {}
+field_type: image

@@ -1,10 +1,12 @@
-uuid: 12345678-1234-1234-1234-123456789abd
+uuid: a0b52944-c301-4ec5-b5c8-22b8c5d765c2
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_badges
     - node.type.outfit
+  module:
+    - organization_schema
 id: node.outfit.field_badges
 field_name: field_badges
 entity_type: node
@@ -16,4 +18,4 @@ translatable: false
 default_value: {}
 default_value_callback: ""
 settings: {}
-field_type: text
+field_type: image

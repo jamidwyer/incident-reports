@@ -1,0 +1,19 @@
+uuid: a55cc2c6-9f45-40f2-8632-3248a68e2db3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_skin_color
+    - node.type.person
+id: node.person.field_skin_color
+field_name: field_skin_color
+entity_type: node
+bundle: person
+label: 'Skin Color'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

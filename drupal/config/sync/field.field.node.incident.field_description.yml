@@ -1,0 +1,22 @@
+uuid: d0d8ec78-ce96-4069-832b-1966045d543b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description
+    - node.type.incident
+  module:
+    - text
+id: node.incident.field_description
+field_name: field_description
+entity_type: node
+bundle: incident
+label: Description
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

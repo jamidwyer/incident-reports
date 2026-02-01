@@ -1,0 +1,11 @@
+uuid: fd97100c-1686-41b7-81c8-394180ab8879
+langcode: en
+status: true
+dependencies: {  }
+name: 'Postal Address'
+type: postal_address
+description: 'A Postal Address content type.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false
