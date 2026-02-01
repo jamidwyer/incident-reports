@@ -246,27 +246,25 @@ See `drupal/LICENSE.txt` for licensing information.
 
 ## TODO
 
-- deploy
+- merge
+- react fe that show incidents list and individual incident details
 - translate all to spanish
 - somalian
-- hmong
+- hmong (vietnamese?)
 - haitian?
 - add vehicle content type
 - add videos to incident
 - outfit needs to be better
 - add sources to incident
-- put it online
 - make it so folks can add all needed fields on the incident page
 - figure out crowdsourcing...
 - add view of Incidents to each content view, eg ICE has all its incidents in a list
-- outfit still needs work
-- add incident type enum (homicide, assault, arrest, neglect, medical malpractice), default sort by this
+- add incident type enum (murder, homicide, assault, kidnapping, arrest, neglect, medical malpractice), default sort by this
 - add victims as Person when you're _sure_ the website won't mix perps and victims
 - add optional Operator field to Place. can be Person or Organization?
 - add chain of command for both person and organization
 - remove powered by drupal not tryna get buytaert on a watchlist
-- add investigation field
-- REST
+- add Investigation field
 - exportable as CSV
 - add salary to Person
 - google translate key to .env
