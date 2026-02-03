@@ -18,5 +18,6 @@ is_admin: false
 permissions:
   - 'access comments'
   - 'access content'
+  - 'restful get incidents_resource'
   - 'search content'
   - 'use text format restricted_html'

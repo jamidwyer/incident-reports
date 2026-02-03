@@ -24,3 +24,7 @@ drupal/web/sites/*/services.yml
 
 # Docker volumes / local state (if any)
 **/db-data/
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
