@@ -7,6 +7,7 @@ export default defineConfig({
     host: true,
     port: 5173,
     strictPort: true,
+    allowedHosts: ['forcewatch.wtf'],
     proxy: {
       '/api': {
         target: 'http://nginx',
