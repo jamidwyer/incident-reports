@@ -14,6 +14,7 @@ services:
       - drupal-files:/var/www/html/web/sites/default/files
 
   nginx:
+    image: forcewatch-nginx
     build:
       context: .
       dockerfile: docker/nginx/Dockerfile.prod
