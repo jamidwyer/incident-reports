@@ -27,6 +27,12 @@ function formatValue(value) {
   if (value === null || value === undefined) return "";
   if (typeof value === "string" || typeof value === "number")
     return String(value);
+  if (Array.isArray(value)) {
+    return value
+      .map((item) => formatValue(item))
+      .filter(Boolean)
+      .join(", ");
+  }
   if (typeof value === "object") {
     if ("value" in value) return formatValue(value.value);
     if ("label" in value) return formatValue(value.label);
@@ -45,7 +51,7 @@ function formatDateTime(value) {
   const pad = (num) => String(num).padStart(2, "0");
   return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(
     date.getDate(),
-  )} ${pad(date.getHours())}-${pad(date.getMinutes())}`;
+  )} ${pad(date.getHours())}:${pad(date.getMinutes())}`;
 }
 
 function toTimestamp(value) {
@@ -184,7 +190,7 @@ function IncidentTable({ incidents, status, error }) {
           <tr>
             <th>Date</th>
             <th>Title</th>
-            <th>Persons</th>
+            <th>Agents Involved</th>
             <th>Place</th>
           </tr>
         </thead>
