@@ -10,4 +10,5 @@ permissions:
   - 'access content'
   - 'create incident content'
   - 'restful get entity:node'
+  - 'restful get incidents_resource'
   - 'restful post entity:node'

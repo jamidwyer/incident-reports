@@ -564,7 +564,7 @@ display:
         access: false
         style: false
         row: false
-      path: api/incidents
+      path: api/incidents-view
       access:
         type: perm
         options:

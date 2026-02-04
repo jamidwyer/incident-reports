@@ -1,0 +1,17 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - incident_schema
+    - rest
+    - serialization
+id: incidents_resource
+plugin_id: incidents_resource
+granularity: resource
+configuration:
+  methods:
+    - GET
+  formats:
+    - json
+  authentication:
+    - cookie
