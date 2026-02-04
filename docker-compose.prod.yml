@@ -27,6 +27,7 @@ services:
       - react
   react:
     image: forcewatch-react-prod
+    profiles: []
     build:
       context: .
       dockerfile: docker/react/Dockerfile.prod
