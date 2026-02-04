@@ -41,7 +41,7 @@ Then open: http://localhost:5173
 
 See `drupal/LICENSE.txt` for licensing information.
 
-- react fe that show incidents list and individual incident details
+- add 10 incidents
 - translate all to spanish
 - somalian
 - hmong (vietnamese?)
@@ -53,6 +53,7 @@ See `drupal/LICENSE.txt` for licensing information.
 - make it so folks can add all needed fields on the incident page
 - figure out crowdsourcing...
 - add view of Incidents to each content view, eg ICE has all its incidents in a list
+- sorting
 - add incident type enum (murder, homicide, assault, kidnapping, arrest, neglect, medical malpractice), default sort by this
 - add victims as Person when you're _sure_ the website won't mix perps and victims
 - add optional Operator field to Place. can be Person or Organization?
