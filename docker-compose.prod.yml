@@ -20,9 +20,7 @@ services:
     restart: unless-stopped
     ports:
       - "80:80"
-    volumes:
-      - ./drupal:/var/www/html:ro
-      - drupal-files:/var/www/html/web/sites/default/files:ro
+    volumes: []
     depends_on:
       - php
 volumes:
