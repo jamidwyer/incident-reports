@@ -55,6 +55,7 @@ See `drupal/LICENSE.txt` for licensing information.
 - add view of Incidents to each content view, eg ICE has all its incidents in a list
 - sorting
 - add incident type enum (murder, homicide, assault, kidnapping, arrest, neglect, medical malpractice), default sort by this
+- https
 - add victims as Person when you're _sure_ the website won't mix perps and victims
 - add optional Operator field to Place. can be Person or Organization?
 - add chain of command for both person and organization
